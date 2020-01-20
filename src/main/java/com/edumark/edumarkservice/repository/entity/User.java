@@ -1,13 +1,12 @@
 package com.edumark.edumarkservice.repository.entity;
 
-import lombok.*;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 @Data
@@ -16,33 +15,34 @@ import java.util.Date;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @EqualsAndHashCode(callSuper = false)
-@Table(name = "courses_category")
-public class CoursesCategory implements Serializable{
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
-    @Column(name = "category_name", columnDefinition = "NVARCHAR(225)")
-    private String categoryName;
+    @Column(name = "user_name")
+    private String user_name;
 
-    @Column(name = "parentId")
-    private boolean parentId;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "description", columnDefinition = "TEXT")
-    private String description;
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "disable")
-    private boolean disable;
+    @Column(name = "active")
+    private int active;
+
+    @Column(name = "roleId")
+    private int roleId;
 
     @Column(name = "create_user")
     private long createUser;
 
-
     @Column(name = "update_user")
     private long updateUser;
-
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date")
@@ -52,4 +52,3 @@ public class CoursesCategory implements Serializable{
     @Column(name = "update_date")
     private Date updateDate;
 }
-

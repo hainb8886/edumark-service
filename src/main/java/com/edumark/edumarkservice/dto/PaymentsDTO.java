@@ -1,26 +1,16 @@
 package com.edumark.edumarkservice.dto;
 
-import lombok.*;
-
 import java.util.Date;
 
-@Builder
-@Data
-@Getter
-@Setter
-@EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
-public class CoursesCategoryDTO {
+public class PaymentsDTO {
 
-    private long id;
-    private String categoryName;
-    private int parentId;
+    private int id;
+    private String paymentName;
+    private String images;
     private String description;
     private boolean disable;
     private long createUser;
     private long updateUser;
     private Date createDate;
     private Date updateDate;
-
 }
